@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Báo Xổ Số</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            transition: background-color 0.5s;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(135deg, #2c3e50, #34495e); }
+            100% { background: linear-gradient(135deg, #34495e, #2c3e50); }
+        }
+
+        body.dark-mode {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        .container {
+            text-align: center;
+            background: #34495e;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+            transition: background-color 0.5s;
+        }
+
+        .header {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #f39c12, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shine 3s infinite, shakeHeader 1.5s infinite, textGlow 1.5s infinite alternate;
+        }
+
+        @keyframes shine {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes shakeHeader {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(-10px); }
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.7); }
+            100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.9); }
+        }
+
+        .date {
+            font-size: 24px;
+            color: #e67e22;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .btl {
+            font-size: 22px;
+            color: #2ecc71;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: pulse 1s infinite, bounce 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        .btl .highlight {
+            font-size: 28px;
+            color: #e74c3c;
+            font-weight: bold;
+            animation: shake 0.8s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+
+        .free-note {
+            font-size: 26px;
+            font-weight: bold;
+            color: #e74c3c;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #1abc9c, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 2s infinite, glowText 1s infinite alternate;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes glowText {
+            0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); }
+            100% { text-shadow: 0 0 30px rgba(255, 255, 255, 1); }
+        }
+
+        .icon {
+            font-size: 32px;
+            margin: 0 5px;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .icon:hover {
+            color: #3498db;
+            transform: rotate(20deg);
+        }
+
+        .icon:nth-child(odd) {
+            color: #e74c3c;
+        }
+
+        .icon:nth-child(even) {
+            color: #f39c12;
+        }
+
+        .discussion {
+            margin-top: 20px;
+            padding: 20px;
+            background: #2c3e50;
+            border-radius: 10px;
+            color: #ecf0f1;
+            font-size: 18px;
+            text-align: left;
+            animation: slideInUp 1s ease-out;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .discussion .message {
+            margin-bottom: 10px;
+        }
+
+        .discussion .message.user {
+            color: #3498db;
+        }
+
+        .discussion .message.bot {
+            color: #e67e22;
+        }
+
+        .message input {
+            width: calc(100% - 90px);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+            box-sizing: border-box;
+        }
+
+        .message button {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .message button:hover {
+            background-color: #2980b9;
+        }
+
+        .toggle-theme {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .toggle-theme:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <div class="container">
+        <div class="header">
+            <span class="icon">🏢</span> Công ty TNHH Xổ Số Kiến Thiết <span class="icon">🏆</span>
+        </div>
+        <div class="date">
+            📅 MB / 16.08.2024 / ADMIN HÀ ANH TUẤN
+        </div>
+        <div class="btl">
+            🎯 BTL: <span class="highlight">??</span> <9000đ> <span class="icon">💸</span>
+        </div>
+        <div class="free-note">
+            🔓 Số hoàn toàn miễn phí không bán!! <span class="icon">🚫💰</span>
+        </div>
+        <div class="discussion">
+            <h2>Khu Bàn Luận Số</h2>
+            <p>Thảo luận về các số may mắn, chia sẻ kinh nghiệm và dự đoán kết quả xổ số. Chúng tôi khuyến khích mọi người tham gia và chia sẻ thông tin hữu ích. (Chưa Hoạt Động)</p>
+            <div id="messages">
+                <!-- Tin nhắn sẽ được hiển thị tại đây -->
+            </div>
+            <div class="message">
+                <input type="text" id="messageInput" placeholder="Nhập tin nhắn...">
+                <button onclick="sendMessage()">Gửi</button>
+            </div>
+        </div>
+    </div>
+    <button class="toggle-theme" onclick="toggleTheme()">Chuyển chế độ</button>
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('.container').classList.toggle('dark-mode');
+        }
+
+        function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const messageText = messageInput.value.trim();
+
+            if (messageText) {
+                const messageContainer = document.getElementById('messages');
+                const newMessage = document.createElement('div');
+                newMessage.className = 'message user';
+                newMessage.textContent = messageText;
+                messageContainer.appendChild(newMessage);
+                messageInput.value = '';
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>
