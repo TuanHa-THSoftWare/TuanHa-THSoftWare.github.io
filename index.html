@@ -1,1 +1,331 @@
-TEST TÊN MIỀN + HOSTING WEBSITE !!
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <link rel="icon" href="phatcutevcl.jpg" sizes="32x32">
+
+    <meta name="viewport" content="width=device-width">
+
+    <link href="styles.css" rel="stylesheet">
+    <title>Nguyễn Đức Phát – Tools Developer</title>
+    <meta name="description" content="In the quiet realm of a coder's life, the symphony of keystrokes orchestrates a world of innovation and endless possibilities.">
+</head>
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+        transition: background-color 0.5s ease, color 0.5s ease, opacity 0.8s ease-in;
+    }
+
+	
+    body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; 
+    transition: opacity 0.5s ease-in;
+	background-color: #ffffff;
+}
+
+body.loaded {
+    opacity: 1;
+    transition: opacity 0.5s ease-in, background-color 0.5s ease; 
+}
+body.dark-mode {
+    background-color: #1d1d1d; 
+}
+
+    .ms {
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjAwJyBoZWlnaHQ9JzIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBkPSdNMTAwIDBDMjAgMCAwIDIwIDAgMTAwczIwIDEwMCAxMDAgMTAwIDEwMC0yMCAxMDAtMTAwUzE4MCAwIDEwMCAwWicvPjwvc3ZnPg==);
+        mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjAwJyBoZWlnaHQ9JzIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBkPSdNMTAwIDBDMjAgMCAwIDIwIDAgMTAwczIwIDEwMCAxMDAgMTAwIDEwMC0yMCAxMDAtMTAwUzE4MCAwIDEwMCAwWicvPjwvc3ZnPg==)
+    }
+
+    .fl {
+        display: flex;
+    }
+
+    .fw {
+        width: 100%;
+    }
+
+    .p-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .p-16 {
+        padding-bottom: 4rem;
+    }
+
+    
+    .mw-md {
+        max-width: 28rem;
+        margin: 0 auto; 
+    }
+
+    .tc {
+        text-align: center;
+    }
+
+    .t-2xl {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .t-3xl {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+
+    .t-lg {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+
+    .fb {
+        font-weight: 700;
+    }
+
+    .fm {
+        font-weight: 500;
+    }
+
+    .fsb {
+        font-weight: 600;
+    }
+
+    .s5 {
+        --tw-text-opacity: 1;
+        color: rgb(100 116 139 / var(--tw-text-opacity));
+    }
+
+    .s8 {
+        --tw-text-opacity: 1;
+        color: rgb(30 41 59 / var(--tw-text-opacity));
+    }
+
+    .s9 {
+        --tw-text-opacity: 1;
+        color: rgb(15 23 42 / var(--tw-text-opacity));
+    }
+
+    .hover:underline {
+        text-decoration: underline;
+    }
+
+    .underline-offset-4 {
+        text-underline-offset: 0.25rem;
+    }
+
+    .dark-mode {
+        background-color: #000000;
+        color: #cbd5e0;
+    }
+
+	.toggle-btn {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #4a5568;
+    transition: transform 0.3s ease;
+    z-index: 1;
+    display: flex; 
+    align-items: center; 
+}
+
+.toggle-btn::before {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #4a5568;
+    border-radius: 4px;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    opacity: 50%;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.toggle-btn:hover::before {
+    opacity: 1;
+}
+
+.toggle-btn:active {
+    transform: scale(1.1);
+}
+
+.toggle-btn:active::before {
+    opacity: 0;
+}
+
+.dark-mode .toggle-btn {
+    color: #cbd5e0;
+}
+
+.dark-mode .toggle-btn::before {
+    border-color: #cbd5e0;
+}
+
+	.dark-mode .s9 {
+    --tw-text-opacity: 1;
+    color: #ffffff; 
+	transition: color 0.5s ease;
+}
+
+.dark-mode .s5 {
+    --tw-text-opacity: 1;
+    color: #cbd5e0; 
+	transition: color 0.5s ease;
+}
+
+.dark-mode .s8 {
+    --tw-text-opacity: 1;
+    color: #cbd5e0; 
+	transition: color 0.5s ease;
+}
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: -30px 0 20px 0; 
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+}
+
+    .social-links li {
+        display: inline;
+        position: relative;
+    }
+
+    .social-links li a {
+        position: relative;
+        color: #4a5568;
+        text-decoration: none;
+        overflow: hidden;
+    }
+
+    .social-links li a::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #4a5568;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .social-links li a:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+    h1, h2, p {
+    margin-top: -8px; 
+    transform: translateY(-20px)
+}
+.battery-status {
+        position: fixed;
+        top: 16px;
+        left: 16px;
+        transition: color 0.5s ease, color 0.5s ease, opacity 0.8s ease-in;
+        font-size: 20px;
+        color: #4a5568;
+    }
+
+    .dark-mode .battery-status {
+        color: #ffffff;
+    }
+
+
+    .notification {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  padding: 15px;
+  background-color: red;
+  border-radius: 5px;
+  display: none;
+  color: white;
+  animation: slide-up 0.5s ease-out;
+}
+
+.notification.connected {
+  transform: translateY(0);
+  transition: transform 0.3s ease-out;
+}
+
+.retry-button {
+  color: #2196F3;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+</style>
+
+<body class="fs antialiased" data-sveltekit-preload-data="hover">
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+    <div class="fw p-16">
+        <div class="fw p-4 mw-md tc">
+            <img src="https://i.pinimg.com/736x/61/70/ee/6170eed11fa351673e275d26410cb627.jpg" alt="Lars Graubner" width="150" height="150" class="ms mx-auto block mb-8">
+            <h1 class="fb t-2xl mb-1 s9" data-svelte-h="svelte-krlu0o">Hà Anh Tuấn</h1>
+            <h2 class="fm s5 mb-10" data-svelte-h="svelte-1b3h02s">Tools Developer</h2>
+            <p class="fm mb-10 s8 t-lg" data-svelte-h="svelte-ln22k5">In the quiet realm of a coder's life, the symphony of keystrokes orchestrates a world of innovation and endless possibilities.</p>
+            <ul class="fl fm s5 jc social-links" data-svelte-h="svelte-1f7u824">
+                <li><a href="https://www.zalo.me/0775.980.604" class="hover:underline underline-offset-4">Zalo</a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100040285957922" class="hover:underline underline-offset-4">Facebook</a></li>
+                <li><a href="https://sontungmtp_official.t.me" class="hover:underline underline-offset-4">Telegram</a></li>
+                <li><a href="" class="hover:underline underline-offset-4">My Locket</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="connection-notification" class="notification">
+        Không có kết nối internet. 
+      </div>
+      <script>
+    </script>
+<script>
+		function toggleDarkMode() {
+			var body = document.body;
+			var isDarkMode = body.classList.toggle('dark-mode');
+			var toggleBtn = document.querySelector('.toggle-btn');
+	
+			toggleBtn.textContent = isDarkMode ? '🌞' : '🌙';
+		}
+	</script>
+	<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.body.classList.add('loaded');
+    });
+</script>
+</body>
+
+</html>
