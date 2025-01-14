@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi@@</title>
+    <link rel="shortcut icon" href="https://i.imgur.com/8Gxg3Fa.png">
+    <link rel="icon" href="https://i.imgur.com/8Gxg3Fa.png">
+    <style>
+        body {
+            margin: 0;
+            background-color: #f4f6f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #login-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-button {
+            background: linear-gradient(to right, #007991, #78ffd6);
+            border: none;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 24px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-family: Arial, Helvetica, sans-serif;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 16px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-button:hover {
+            transform: scale(1.05);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        body:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, rgba(255,255,255,0) 70%),
+                        radial-gradient(circle, rgba(255,255,255,0.1) 10%, rgba(255,255,255,0) 70%),
+                        radial-gradient(circle, rgba(255,255,255,0.1) 10%, rgba(255,255,255,0) 70%),
+                        linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%);
+            background-blend-mode: screen;
+            z-index: -1;
+            animation: background 20s infinite linear;
+        }
+
+        @keyframes background {
+            0% {background-position: 0 0, 0 0, 0 0, 0 0;}
+            100% {background-position: 0 400px, 200px 0, -200px -200px, 0 0;}
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login-box">
+        <button id="login-button" class="login-button">Contact for Me</button>
+    </div>
+
+    <div id="video-container" style="display: none;">
+        <video id="video" src="video.mp4" loop></video>
+    </div>
+
+    <script>
+        const loginButton = document.getElementById("login-button");
+        const videoContainer = document.getElementById("video-container");
+        const video = document.getElementById("video");
+
+        loginButton.addEventListener("click", function(event) {
+            videoContainer.style.display = "block";
+            video.play();
+            openFullscreen(video);
+            maxVolume(video);
+            document.addEventListener("fullscreenchange", fullscreenChangeHandler);
+        });
+
+        function openFullscreen(elem) {
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) {
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        }
+
+        function maxVolume(elem) {
+            elem.volume = 1.0;
+        }
+
+        function fullscreenChangeHandler() {
+            if (!document.fullscreenElement) {
+                videoContainer.style.display = "none";
+                document.removeEventListener("fullscreenchange", fullscreenChangeHandler);
+            }
+        }
+    </script>
+</body>
+
+</html>
+                                                                                                                                                                <!-- https://drive.google.com/drive/folders/1LQVTaZ_MWyX067fDiE6KvKS94xS_xUBk?usp=drive_link -->
